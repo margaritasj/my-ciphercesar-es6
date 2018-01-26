@@ -34,7 +34,6 @@ funcion cipher
             var cipherNumber = (caracteres[n]  - 65 + 33) % 26 + 65
             caracteresCipher.push(String.fromCharCode(cipherNumber))
         }
-
 }
 
 funcion decipher{
@@ -43,7 +42,7 @@ funcion decipher{
   	    para ( i = 0; i < cadena; i++){
     	    caracteres[i] = String.fromCharCode(caracteres[i]);//// El array caracteres almacenara los caracteres con el método devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
   	    }  
-};
+}
 
 ***
 
@@ -60,5 +59,4 @@ funcion decipher{
 - Bootstrap v4.
 
 ## EXTRA ##
-
-link del repositorio con ES5:  https://github.com/margb13/My-CipherCesar
+[Link de repositorio con ES5](https://github.com/margb13/My-CipherCesar)

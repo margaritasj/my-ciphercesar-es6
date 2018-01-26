@@ -1,10 +1,11 @@
 // Las funciones flecha siempre son anónimas.
 window.addEventListener('load', () => {
   // Declaracion de variables
-  let resultado = document.getElementById('resultado');
+  // Obtener el valor de lo que ingresa el usuario input type=text
+  const resultado = document.getElementById('resultado');
   let cifrado = document.getElementById('btn-cifrado');
   let descifrado = document.getElementById('btn-descifrado');
-
+  const valorD = 33;
   // validacion del input
   let validate = (cadena) => {
     let alerta = true;
@@ -20,14 +21,15 @@ window.addEventListener('load', () => {
 
   // Funcion para cifrar
   let cipher = () => {
-    // Obtener el valor de lo que ingresa el usuario input type=text
-    let cadena = document.getElementById('txt-input').value;
-
+    const cadena = document.getElementById('txt-input').value;
     let valid = validate(cadena);
     if (valid !== true) {
       alert(valid);
       return;
     }
+
+    let mayus = (cadena === cadena.toUpperCase()) ? true : false;
+
     // creamos un array
     let caracteres = [];
     let caracteresCipher = [];
@@ -39,7 +41,7 @@ window.addEventListener('load', () => {
     }
     for (let n = 0; n < caracteres.length; n++) {
 
-      let cipherNumber = (caracteres[n] - 65 + 33) % 26 + 65;
+      let cipherNumber = (caracteres[n] - 65 + valorD) % 26 + 65;
       // El array caracteres almacenara los caracteres con el metodo devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
       caracteresCipher.push(String.fromCharCode(cipherNumber));
 
@@ -48,8 +50,11 @@ window.addEventListener('load', () => {
 
     console.log(caracteresCipher.join(''));
     // Esta propiedad devuelve la sintaxis HTML (resultado) de mi array caracteres.
+
     resultado.innerHTML = caracteresCipher.join('');
     // document.getElementById('txt-input').value = '';
+    mayus ? resultado.toUpperCase() : resultado;
+
   };
   console.log(cipher);
 
@@ -66,10 +71,19 @@ window.addEventListener('load', () => {
     let caracteres = cadena.split(',');
     for (let i = 0; i < cadena; i++) {
       // El array caracteres almacenara cadena creada mediante el uso de una secuencia de val Unicode especificada.
-      caracteres[i] = String.fromCharCode(caracteres[i]);
+      caracteres[i] = cadena.charAt(i).charCodeAt(0);
+    }
+
+    for (let n = 0; n < caracteres.length; n++) {
+
+      let caracteresDescipher = (caracteres[n] - 65 - valorD) % 26 + 65;
+      // El array caracteres almacenara los caracteres con el metodo devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
+      caracteresDescipher.push(String.fromCharCode(caracteresDescipher));
+
+      console.log(caracteresDescipher);
     }
     // Esta propiedad devuelve la sintaxis HTML (resultado) de mi array caracteres.
-    resultado.innerHTML = caracteres.toString();
+    resultado.innerHTML = caracteresDescipher.toString();
   };
   console.log(decipher);
 

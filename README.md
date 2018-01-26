@@ -20,27 +20,29 @@ El usuario no debe poder ingresar un campo vacío o que contenga números.
 ## PSEUDOCODIGO ##
 
 funcion cipher 
-  variable cadena = document.getElementById("entrada").value
-    array caracteres = []; //creamos un array
+    variable cadena = document.getElementById("entrada").value
+      
+    array caracteres = []; //creamos un array 
     array caracteresCipher =[];
       si(cadena.length > 0){
-        alerta('Ingrese su texto porfavor');
+          alerta('Ingrese su texto porfavor');
       }
-      para ( i = 0; i < cadena.length; i++){
-        caracteres[i] = cadena.charAt(i).charCodeAt(0);
-      }
-      para ( n = 0; n < caracteres.length; n++){
-        var cipherNumber = (caracteres[n]  - 65 + 33) % 26 + 65
-        caracteresCipher.push(String.fromCharCode(cipherNumber));
-      }
+  	    para ( i = 0; i < cadena.length; i++){ 
+            caracteres[i] = cadena.charAt(i).charCodeAt(0);         
+        }
+        para ( n = 0; n < caracteres.length; n++){
+            var cipherNumber = (caracteres[n]  - 65 + 33) % 26 + 65
+            caracteresCipher.push(String.fromCharCode(cipherNumber))
+        }
+
 }
 
 funcion decipher{
-  variable cadena = document.getElementById("entrada").value;
-  variable caracteres = cadena.split(',');
-  para ( i = 0; i < cadena; i++){
-      caracteres[i] = String.fromCharCode(caracteres[i]);//// El array caracteres almacenara los caracteres con el método devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
-      }
+    variable cadena = document.getElementById("entrada").value;       
+    variable caracteres = cadena.split(',');
+  	    para ( i = 0; i < cadena; i++){
+    	    caracteres[i] = String.fromCharCode(caracteres[i]);//// El array caracteres almacenara los caracteres con el método devuelve una cadena creada mediante el uso de una secuencia de valores Unicode especificada.
+  	    }  
 };
 
 ***
@@ -56,3 +58,7 @@ funcion decipher{
 - jQuery.
 
 - Bootstrap v4.
+
+## EXTRA ##
+
+link del repositorio con ES5:  https://github.com/margb13/My-CipherCesar
